@@ -26,7 +26,5 @@ fn get_digits(mut num: u32) -> Vec<u32> {
         num /= 10;
     }
 
-    digits.reverse();
-
     digits
 }
