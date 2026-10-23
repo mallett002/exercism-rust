@@ -34,10 +34,11 @@ fn get_verse(start: u32, stop: u32) -> String {
         "{start_as_str} green {start_bottle} hanging on the wall,\n\
         {start_as_str} green {start_bottle} hanging on the wall,\n\
         And if one green bottle should accidentally fall,\n\
-        There'll be {stop_as_str} green {stop_bottle} hanging on the wall."
+        There'll be {stop_as_str} green {stop_bottle} hanging on the wall.\n"
     ))
 }
 
+#[deprecated(since = "always", note = "Use `recite` instead")]
 pub fn recite2(start_bottles: u32, take_down: u32) -> String {
     let mut result = String::new();
     let stop_bottles = start_bottles - take_down;
@@ -74,21 +75,21 @@ while count > take_down:
 */
 
 pub fn recite(start_bottles: u32, take_down: u32) -> String {
-    let mut start = start_bottles;
-    let mut count = 0;
+    let mut current_bottles = start_bottles;
+    let mut verse_count = 0;
 
     let mut result = String::new();
 
-    while count < take_down {
-        count += 1;
+    while verse_count < take_down {
+        verse_count += 1;
 
-        result.push_str(get_verse(start, start - 1).as_str());
+        result.push_str(get_verse(current_bottles, current_bottles - 1).as_str());
 
-        if count != take_down {
-            result.push_str("\n\n");
+        if verse_count != take_down {
+            result.push_str("\n");
         }
 
-        start -= 1;
+        current_bottles -= 1;
     }
 
     result
