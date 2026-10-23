@@ -26,6 +26,7 @@ fn get_verse(start: u32, stop: u32) -> String {
 
     let start_as_str = uppercase_first_char(nums_to_nums.get(&start).unwrap());
     let stop_as_str = nums_to_nums.get(&stop).unwrap();
+
     let start_bottle = if start == 1 { "bottle" } else { "bottles" };
     let stop_bottle = if stop == 1 { "bottle" } else { "bottles" };
 
@@ -40,11 +41,18 @@ fn get_verse(start: u32, stop: u32) -> String {
 pub fn recite(start_bottles: u32, take_down: u32) -> String {
     let mut result = String::new();
     let stop_bottles = start_bottles - take_down;
+    let mut where_to_start = start_bottles;
 
     for next_bottles in (stop_bottles..start_bottles).rev() {
-        let next_verse = get_verse(start_bottles, next_bottles);
+        let next_verse = get_verse(where_to_start, next_bottles);
 
         result.push_str(next_verse.as_str());
+
+        where_to_start -= 1;
+
+        if next_bottles != stop_bottles {
+            result.push_str("\n\n");
+        }
     }
 
     result
