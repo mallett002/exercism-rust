@@ -38,7 +38,7 @@ fn get_verse(start: u32, stop: u32) -> String {
     ))
 }
 
-pub fn recite(start_bottles: u32, take_down: u32) -> String {
+pub fn recite2(start_bottles: u32, take_down: u32) -> String {
     let mut result = String::new();
     let stop_bottles = start_bottles - take_down;
     let mut where_to_start = start_bottles;
@@ -57,3 +57,44 @@ pub fn recite(start_bottles: u32, take_down: u32) -> String {
 
     result
 }
+
+
+
+/*
+start_bottles:  10
+take_down:      2 (how many prints)
+
+10, 9
+
+let count = 0
+
+while count > take_down:
+    count += 1;
+    print(start_bottles);
+*/
+
+pub fn recite(start_bottles: u32, take_down: u32) -> String {
+    let mut start = start_bottles;
+    let mut count = 0;
+
+    let mut result = String::new();
+
+    while count < take_down {
+        count += 1;
+
+        result.push_str(get_verse(start, start - 1).as_str());
+
+        if count != take_down {
+            result.push_str("\n\n");
+        }
+
+        start -= 1;
+    }
+
+    result
+}
+
+
+
+
+

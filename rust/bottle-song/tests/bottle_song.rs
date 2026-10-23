@@ -40,7 +40,7 @@ fn verse_with_2_bottles() {
     );
 }
 
-#[test] // failing
+#[test]
 fn verse_with_1_bottle() {
     assert_eq!(
         recite(1, 1).trim(),
