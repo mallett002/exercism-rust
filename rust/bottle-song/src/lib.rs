@@ -25,12 +25,13 @@ fn get_verse(start: u32, stop: u32) -> String {
 
     let start_as_str = uppercase_first_char(nums_to_nums.get(&start).unwrap());
     let stop_as_str = nums_to_nums.get(&stop).unwrap();
+    let bottle = if stop == 1 { "bottle" } else { "bottles" };
 
     String::from(format!(
         "{start_as_str} green bottles hanging on the wall,\n\
         {start_as_str} green bottles hanging on the wall,\n\
         And if one green bottle should accidentally fall,\n\
-        There'll be {stop_as_str} green bottles hanging on the wall."
+        There'll be {stop_as_str} green {bottle} hanging on the wall."
     ))
 }
 
