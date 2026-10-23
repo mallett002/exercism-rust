@@ -27,7 +27,7 @@ fn last_generic_verse() {
     );
 }
 
-#[test] // failing
+#[test]
 fn verse_with_2_bottles() {
     assert_eq!(
         recite(2, 1).trim(),
@@ -40,7 +40,7 @@ fn verse_with_2_bottles() {
     );
 }
 
-#[test]
+#[test] // failing
 fn verse_with_1_bottle() {
     assert_eq!(
         recite(1, 1).trim(),
