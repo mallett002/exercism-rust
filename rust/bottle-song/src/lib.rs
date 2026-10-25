@@ -74,7 +74,7 @@ while count > take_down:
     print(start_bottles);
 */
 
-pub fn recite(start_bottles: u32, take_down: u32) -> String {
+pub fn recite_rust_like(start_bottles: u32, take_down: u32) -> String {
     let mut current_bottles = start_bottles;
     let mut verse_count = 0;
 
@@ -96,6 +96,15 @@ pub fn recite(start_bottles: u32, take_down: u32) -> String {
 }
 
 
+// More idiomatic rust approach
+pub fn recite(start_bottles: u32, take_down: u32) -> String {
+    (0..take_down)
+        .map(|i| {
+            let bottles = start_bottles - i;
 
-
+            get_verse(bottles, bottles - 1)
+        })
+        .collect::<Vec<String>>()
+        .join("\n")
+}
 
