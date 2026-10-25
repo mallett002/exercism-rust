@@ -5,7 +5,7 @@ fn uppercase_first_char(input: &str) -> String {
 
     match chars.next() {
         Some(f) => f.to_uppercase().collect::<String>() + chars.as_str(),
-        None => String::new()
+        None => String::new(),
     }
 }
 
@@ -59,8 +59,6 @@ pub fn recite2(start_bottles: u32, take_down: u32) -> String {
     result
 }
 
-
-
 /*
 start_bottles:  10
 take_down:      2 (how many prints)
@@ -95,7 +93,6 @@ pub fn recite_rust_like(start_bottles: u32, take_down: u32) -> String {
     result
 }
 
-
 // More idiomatic rust approach
 pub fn recite(start_bottles: u32, take_down: u32) -> String {
     (0..take_down)
@@ -107,4 +104,3 @@ pub fn recite(start_bottles: u32, take_down: u32) -> String {
         .collect::<Vec<String>>()
         .join("\n")
 }
-
