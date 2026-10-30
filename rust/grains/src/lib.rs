@@ -11,4 +11,6 @@ pub fn total() -> u64 {
     }
 
     total
+
+    // TODO: do it more rust idiomatic
 }
