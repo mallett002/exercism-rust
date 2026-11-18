@@ -8,6 +8,7 @@
 pub fn is_armstrong_number(num: u32) -> bool {
     let digits = get_digits(num);
     let digit_len = digits.len() as u32;
+
     let mut built_num: u32 = 0;
 
     for digit in digits {
@@ -22,7 +23,9 @@ fn get_digits(mut num: u32) -> Vec<u32> {
 
     while num > 0 {
         let digit = num % 10;
+
         digits.push(digit);
+
         num /= 10;
     }
 
